@@ -1,52 +1,41 @@
-n=int(input("enter no.of students in a class : "))
-persentage=[]
-
+n=int(input("no of student in a class "))
+p=[]
 def entry():
     for i in range(n):
-        p=float(input("enter persentage of students : "))
-        if p>100 or p<0:
+        a=int(input("enter persentage "))
+        if(a>100 and a<0):
             print("enter valid persentage : ")
-            p = float(input("enter persentage of students : "))
-        persentage.append(p)
-    print("unsorted array : ",persentage)
-
-def selection_sort():
+            a = int(input("enter persentage "))
+        p.append(a)
+    print("unsorted persentage  ",p)
+def selection():
     for i in range(n-1):
         for j in range(n):
             if i<j:
-                if persentage[i]>persentage[j]:
-                    temp=persentage[i]
-                    persentage[i]=persentage[j]
-                    persentage[j]=temp
-    print("sorted array : ",persentage)
-    top_five=persentage[n:n-6:-1]
-    print("top five scores are : ",top_five)
-
-def bubble_sort():
+                if p[j]<p[i]:
+                    temp=p[i]
+                    p[i]=p[j]
+                    p[j]=temp
+    print("sortd array ", p)
+    top = p[n:n - 6:-1]
+    print("top five score ", top)
+def bubble():
     for i in range(n-1):
         for j in range(n-1):
-            if persentage[j]>persentage[j+1]:
-                temp = persentage[j]
-                persentage[j] = persentage[j+1]
-                persentage[j+1] = temp
-    print("sorted array : ", persentage)
-    top_five = persentage[n:n - 6:-1]
-    print("top five scores are : ", top_five)
-
-print(" 1) entry of persentage\n 2) selection sort\n 3) bubble sort")
-print("\t")
-
-while (True):
-    ch=int(input("enter choice : "))
+            if p[j]>p[j+1]:
+                temp=p[j]
+                p[j]=[j+1]
+                p[j+1]=temp
+    print("sortd array ", p)
+    top = p[n:n - 6:-1]
+    print("top five score ", top)
+while(True):
+    ch=int(input("enter choice "))
     if ch==1:
         entry()
-        print("\t")
-    elif ch==2:
-        selection_sort()
-        print("\t")
-    elif ch==3:
-        bubble_sort()
-        print("\t")
-    else:
-        print("please enter valid choice ")
-        print("\t")
+    if ch==2:
+        selection()
+    if ch==3:
+        bubble()
+    if ch==4:
+        break

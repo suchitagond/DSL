@@ -1,91 +1,67 @@
-r=int(input("enter no.of rows : "))
-c=int(input("enter no.of coloumbs : "))
-
+r=int(input("no of rows in a matrix : "))
+c=int(input("no of columns in a matrix : "))
 def entry():
     m=[]
     for i in range(r):
         n=[]
         for j in range(c):
-            x=int(input("enter element for matrix : "))
-            n.append(x)
+            a=int(input("enter a value : "))
+            n.append(a)
         m.append(n)
     return m
-
-def display(p):
+def display(m):
     for i in range(r):
         for j in range(c):
-            print(p[i][j],end=" ")
-        print("\t")
-
+            print(m[i][j],end=" ")
+        print("\n")
 def addition():
     for i in range(r):
         for j in range(c):
             print(m1[i][j]+m2[i][j],end=" ")
-        print("\t")
-
-def subtraction():
+        print("\n")
+def subtration():
     for i in range(r):
         for j in range(c):
-            sub=m1[i][j] - m2[i][j]
-            print(sub,end=" ")
-        print("\t")
-
-def multiplication():
-    fin=[]
+            print(m1[i][j] - m2[i][j], end=" ")
+        print("\n")
+def mult():
+    a=[]
     for i in range(r):
-        mul=[]
+        b=[]
         for j in range(c):
-            add = 0
+            add=0
             for k in range(c):
                 add+=m1[i][k]*m2[k][j]
-            mul.append(add)
-        fin.append(mul)
-    return fin
-
-def transpose():
-    t=[]
+            b.append(add)
+        a.append(b)
+    return a
+def trans():
     for i in range(r):
-        l=[]
         for j in range(c):
-            g=m3[j][i]
-            l.append(g)
-        t.append(l)
-    return t
-
-print(" 1) read and display 1st matrix\n 2) read and display 2nd matrix\n 3) addition of 2 matrix\n 4) substration of 2 matrix\n "
-      "5) multiplication of matrix\n 6) transpose of matrix")
-print("\t")
+            print(m1[j][i],end=" ")
+        print("\n")
+    for i in range(r):
+        for j in range(c):
+            print(m2[j][i],end=" ")
+        print("\n")
 
 while(True):
-    ch=int(input("enter your choice : "))
-    if ch==1:
-        print("1st matrix :")
+    print(" 1)entry 1st matrix\n2)enter 2nd matrix\n3)display\n4)add\n5)sub\n6)mult\n7)trans\n")
+    ch=int(input("enter choice : "))
+    if(ch==1):
         m1=entry()
         display(m1)
-        print("\t")
-    if ch==2:
-        print("2nd matrix :")
-        m2 = entry()
+    if(ch==2):
+        m2=entry()
         display(m2)
-        print("\t")
-    if ch==3:
-        print("addition of matrix :")
+    if(ch==4):
         addition()
-        print("\t")
-    if ch==4:
-        print("subtraction of matrix :")
-        subtraction()
-        print("\t")
-    if ch==5:
-        print("multiplication of matrix :")
-        f=multiplication()
-        display(f)
-        print("\t")
-    if ch==6:
-        print("enter matrix that you want to transpose :")
-        m3 = entry()
-        display(m3)
-        print("transposed matrix ")
-        m4=transpose()
-        display(m4)
-        print("\t")
+    if(ch==5):
+        subtration()
+    if(ch==6):
+        a=mult()
+        display(a)
+    if(ch==7):
+        trans()
+    if(ch==8):
+        break
